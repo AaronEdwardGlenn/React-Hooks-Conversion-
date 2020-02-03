@@ -1,23 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import RadioButton from './RadioButton';
 
-const RadioButton = ({ name, label, value, onChange }) => (
+const RadioButtons = ({ radioButtons, name, onChange }) => {
+  const radioButtonElements = radioButtons.map(({ label, value }) => (
+    <RadioButton key={value} label={label} value={value} name={name} onChange={onChange} /> 
+  ));
+  return (
+    <> 
+      {radioButtonElements}
+    </>
+  );
+    
+};
 
-  <div>
-    <input type="radio" name={name} label={label} value={value} onChange={onChange} />
-    <label htmlFor={value}>{label}</label>
-  </div>
-);
-
-RadioButton.propTypes = {
+RadioButtons.propTypes = {
+  radioButtons: 
+    PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    })).isRequired,
   name: 
-    PropTypes.string.isRequired,
-  label: 
-    PropTypes.string.isRequired,
-  value: 
     PropTypes.string.isRequired,
   onChange: 
     PropTypes.func.isRequired,
 };
-
-export default RadioButton; 
+export default RadioButtons
+;

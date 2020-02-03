@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`radiobuttons component matches the snap 1`] = `
+<div>
+  <input
+    label="rad lable"
+    name="rad name"
+    onChange={[Function]}
+    type="radio"
+    value="rad value"
+  />
+  <label
+    htmlFor="rad value"
+  >
+    rad lable
+  </label>
+</div>
+`;
