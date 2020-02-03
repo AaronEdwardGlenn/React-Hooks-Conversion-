@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const StockPrice = ({ symbol, price, dailyChange }) => {
-  <figure>
+
+const StockInfo = ({ symbol, price, dailyChange }) => (
+  <div>
         Symbol:{symbol}
         Price: {price}
         Daily Change: {dailyChange}
+  </div>
+);
 
-  </figure>;
+StockInfo.propTypes = {
+  symbol: PropTypes.string.isRequired,
+  price: PropTypes.string,
+  dailyChange: PropTypes.string,
 };
 
-export default StockPrice;
+export default StockInfo;

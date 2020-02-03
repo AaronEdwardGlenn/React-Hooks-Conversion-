@@ -1,6 +1,9 @@
 import React from 'react';
+import StockInfo from './StockInfo';
 
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <StockInfo symbol="cool" price="cool" dailyChange="not cool" />
+  );
 }
   
