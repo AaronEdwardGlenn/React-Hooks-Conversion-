@@ -25,5 +25,6 @@ RadioButtons.propTypes = {
   onChange: 
     PropTypes.func.isRequired,
 };
+
 export default RadioButtons
 ;

@@ -1,9 +1,10 @@
 import React from 'react';
 import StockInfo from './StockInfo';
+import RadioButton from './radio/RadioButton';
 
 export default function App() {
   return (
-    <StockInfo symbol="cool" price="cool" dailyChange="not cool" />
+    <RadioButton label="cool label" name="yee" />
   );
 }
   

@@ -1,0 +1,18 @@
+.RadioButton {
+    label {
+    border-radius: 10%;
+     padding: .5rem;
+
+     &:hover {
+         background-color: blueviolet;
+     }
+    }
+    input {
+        display: none; 
+    }
+
+    input:checked + label {
+        background-color: green;
+        color: yellow
+    }
+}
