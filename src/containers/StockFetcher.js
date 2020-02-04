@@ -20,11 +20,8 @@ export default class StockFetcher extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-      if(prevState.stockProvider !== this.state.stockProvider) { 
-        console.log('!!!!', prevState,);
-                   
+      if(prevState.stockProvider !== this.state.stockProvider) {                    
         this.fetch(); 
-
       }
     }
 
@@ -34,9 +31,7 @@ export default class StockFetcher extends Component {
     
     fetch = () => {
       return stockProviderFactory[this.state.stockProvider]()
-        .then(stock => {
-          console.log('recieved stock', stock);
-          
+        .then(stock => {          
           this.setState({ stock });
         });
     }

@@ -1,9 +1,9 @@
 import React from 'react';
-import StockFetcher from '../containers/StockFetcher';
+import StockFetcherFn from '../containers/StockFetcherFn';
 
 export default function App() {
   return (
-    <StockFetcher />
+    <StockFetcherFn />
   );
 }
   
