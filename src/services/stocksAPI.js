@@ -34,3 +34,13 @@ export const getAMZN = () => {
     })); 
 };
   
+export const getStock = (stock) => {
+  return fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stock}&apikey=${key}`)
+    .then(res => res.json())
+    .then(data => data['Global Quote']) 
+    .then(data => ({ 
+      symbol: data['01. symbol'], 
+      price: data['05. price'], 
+      dailyChange: data['10. change percent']  
+    })); 
+};

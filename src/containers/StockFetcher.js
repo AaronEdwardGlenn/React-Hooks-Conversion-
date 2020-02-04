@@ -11,36 +11,47 @@ const stockProviderFactory = {
 
 export default class StockFetcher extends Component {
     state = {
-      stockProvider: 'GILD',
+      stockProvider: 'AAPL',
       stock: { symbol: '', price: '', priceChange: '' }
     }
 
     componentDidMount() {
-      this.fetch(); 
+      this.fetch();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+      if(prevState.stockProvider !== this.state.stockProvider) { 
+        console.log('!!!!', prevState,);
+                   
+        this.fetch(); 
+
+      }
     }
 
     changeStockProvider = ({ target }) => {        
       this.setState({ stockProvider: target.value });
     }
-
+    
     fetch = () => {
       return stockProviderFactory[this.state.stockProvider]()
         .then(stock => {
+          console.log('recieved stock', stock);
+          
           this.setState({ stock });
         });
     }
-
+    
     render() {
       const { stock } = this.state; 
       const radioButtons = [
-        { label: 'Apple', value: 'APPL' },
+        { label: 'Apple', value: 'AAPL' },
         { label: 'Gilead', value: 'GILD' }, 
         { label: 'Amazon', value: 'AMZN' }
       ];
 
       return (
         <>
-          <RadioButtons radioButtons={radioButtons} name="stockProvider" onChange={this.changeStockProvider} />
+          <RadioButtons radioButtons={radioButtons} selected={this.state.stockProvider} name="stockProvider" onChange={this.changeStockProvider} />
           <StockInfo {...stock} />
         </>
       );
