@@ -1,10 +1,9 @@
 import React from 'react';
-import StockInfo from './StockInfo';
-import RadioButton from './radio/RadioButton';
+import StockFetcher from '../containers/StockFetcher';
 
 export default function App() {
   return (
-    <RadioButton label="cool label" name="yee" />
+    <StockFetcher />
   );
 }
   

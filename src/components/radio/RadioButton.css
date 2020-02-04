@@ -7,9 +7,7 @@
          background-color: blueviolet;
      }
     }
-    input {
-        display: none; 
-    }
+   
 
     input:checked + label {
         background-color: green;

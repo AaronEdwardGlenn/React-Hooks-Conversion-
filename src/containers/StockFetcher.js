@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
-import { getAPPL, getAMZN, getGILD } from '../services/stocksAPI';
+import { getAAPL, getAMZN, getGILD } from '../services/stocksAPI';
 import StockInfo from '../components/StockInfo';
 import RadioButtons from '../components/radio/RadioButtons';
 
 const stockProviderFactory = {
   GILD: getGILD,
-  APPL: getAPPL,
+  AAPL: getAAPL,
   AMZN: getAMZN
 };
 
 export default class StockFetcher extends Component {
     state = {
-      symbol: 'GILD',
-      price: '',
-      dailyChange: ''
+      stockProvider: 'GILD',
+      stock: { symbol: '', price: '', priceChange: '' }
     }
 
     componentDidMount() {
       this.fetch(); 
     }
 
-    changeStockProvider = ({ target }) => {
-      this.setState({ symbol: target.value });
+    changeStockProvider = ({ target }) => {        
+      this.setState({ stockProvider: target.value });
     }
 
     fetch = () => {
-      return stockProviderFactory[this.state.symbol]()
-        .then(stock => this.setState({ stock }));
+      return stockProviderFactory[this.state.stockProvider]()
+        .then(stock => {
+          this.setState({ stock });
+        });
     }
 
     render() {
@@ -39,7 +40,7 @@ export default class StockFetcher extends Component {
 
       return (
         <>
-          <RadioButtons radioButtons={radioButtons} name="stock" onChange={this.changeStockProvider} />
+          <RadioButtons radioButtons={radioButtons} name="stockProvider" onChange={this.changeStockProvider} />
           <StockInfo {...stock} />
         </>
       );
