@@ -14,11 +14,15 @@ const radioButtons = [
   { label: 'Gilead', value: 'GILD' }, 
   { label: 'Amazon', value: 'AMZN' }
 ];
-  
+
 const StockFetcherFn = () => {
   const [stockProvider, setStockProvider] = useState('AAPL'); 
   const [stock, setStock] = useState({ symbol: '', price: '', priceChange: '' });
-
+    
+  let handelChange = ({ target }) => {
+    setStockProvider(target.value);
+  };
+    
   let fetch = () => {
     return stockProviderFactory[stockProvider]()
       .then(stock => {
@@ -30,13 +34,13 @@ const StockFetcherFn = () => {
     fetch();
   }, [stockProvider]);
 
+
   return (
     <>
-      <RadioButtons radioButtons={radioButtons} selected={stockProvider} name="stockProvider" onChange={setStockProvider} />
+      <RadioButtons radioButtons={radioButtons} name="stockProvider" handleChange={handelChange} />
       <StockInfo {...stock} />
     </>
   );
-
 };
 
 export default StockFetcherFn; 

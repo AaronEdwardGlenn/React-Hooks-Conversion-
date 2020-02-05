@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RadioButton from './RadioButton';
 
-const RadioButtons = ({ radioButtons, name, onChange, selected }) => {
+const RadioButtons = ({ radioButtons, name, handleChange }) => {
   const radioButtonElements = radioButtons.map(({ label, value }) => (    
-    <RadioButton key={value} label={label} value={value} name={name} selected={selected} onChange={onChange} /> 
+    <RadioButton key={value} label={label} value={value} name={name} handleChange={handleChange} /> 
   ));
   return (
     <> 
@@ -25,6 +25,8 @@ RadioButtons.propTypes = {
   onChange: 
     PropTypes.func.isRequired,
   selected: 
+  PropTypes.string.isRequired,
+  handleChange: 
   PropTypes.string.isRequired,
 };
 
