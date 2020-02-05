@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RadioButton from './RadioButton';
 
-const RadioButtons = ({ radioButtons, name, handleChange }) => {
+const RadioButtons = ({ radioButtons, name, handleChange, selected }) => {
   const radioButtonElements = radioButtons.map(({ label, value }) => (    
-    <RadioButton key={value} label={label} value={value} name={name} handleChange={handleChange} /> 
+    <RadioButton key={value} label={label} value={value} selected={selected} name={name} handleChange={handleChange} /> 
   ));
   return (
     <> 

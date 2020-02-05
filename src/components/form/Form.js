@@ -5,7 +5,7 @@ import styles from './Form.css';
 const Form = ({ onChange, value, onClick }) => (
 
   <form className={styles.Form}>
-    <input type="search" placeholder="Stock Symbol" onChange={onChange} value={value}> 
+    <input type="search" placeholder="Enter Stock Symbol..." onChange={onChange} value={value}> 
     </input>
     <button type="button" onClick={onClick}>Search!</button>
 

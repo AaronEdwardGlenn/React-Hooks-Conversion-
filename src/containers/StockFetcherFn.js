@@ -17,7 +17,7 @@ const radioButtons = [
 ];
 
 const StockFetcherFn = () => {
-  const [stockProvider, setStockProvider] = useState('AAPL'); 
+  const [stockProvider, setStockProvider] = useState('AMZN'); 
   const [stock, setStock] = useState({ symbol: '', price: '', priceChange: '' });
   const [stockSearchBar, setStockSearchBar] = useState(''); 
   
@@ -62,7 +62,7 @@ const StockFetcherFn = () => {
   return (
     <>
       <Form onChange={searchStocks} value={stockSearchBar} onClick={handleSubmit}></Form>
-      <RadioButtons radioButtons={radioButtons} name="stockProvider" handleChange={handelChange} />
+      <RadioButtons radioButtons={radioButtons} selected={stockProvider} name="stockProvider" handleChange={handelChange} />
       <StockInfo {...stock} />
     </>
   );
