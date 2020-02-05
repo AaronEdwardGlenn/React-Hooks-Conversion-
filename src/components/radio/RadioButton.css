@@ -13,10 +13,8 @@
 
     input {
        margin: 20px; 
-    
     }
    
-
     input:checked + label {
         background-color: black;
         color: purple;

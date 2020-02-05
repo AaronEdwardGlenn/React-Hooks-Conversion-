@@ -24,6 +24,8 @@ const StockFetcherFn = () => {
     
   let handelChange = ({ target }) => {
     setStockProvider(target.value);
+    console.log(stockProvider);
+    
   };
 
   let searchStocks = ({ target }) => {
@@ -41,8 +43,8 @@ const StockFetcherFn = () => {
     fetch();
   }, [stockProvider]);
 
-  let handleSubmit = ({ target }) => {
-    setStockSearchBar(target.value);
+  let handleSubmit = (stockName) => {
+    setStockSearchBar(stockName);
   };
 
   let returnSearchedStock = () => {
@@ -61,7 +63,7 @@ const StockFetcherFn = () => {
 
   return (
     <>
-      <Form onChange={searchStocks} value={stockSearchBar} onClick={handleSubmit}></Form>
+      <Form onClick={handleSubmit}></Form>
       <RadioButtons radioButtons={radioButtons} selected={stockProvider} name="stockProvider" handleChange={handelChange} />
       <StockInfo {...stock} />
     </>

@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './Form.css';
 
-const Form = ({ onChange, value, onClick }) => (
 
-  <form className={styles.Form}>
-    <input type="search" placeholder="Enter Stock Symbol..." onChange={onChange} value={value}> 
-    </input>
-    <button type="button" onClick={onClick}>Search!</button>
+const Form = ({ onClick }) => {
+
+  const [search, setSerach] = useState('');
+
+  let handleChange = ({ target }) => {
+    setSerach(target.value);
+  };
+
+  return (
+    <form className={styles.Form}>
+    
+      <input type="search" placeholder="Enter Stock Symbol..." onChange={handleChange} value={search}> 
+      </input>
+      <button type="button" onClick={() => onClick(search)}>Search!</button>
 
 
-  </form>
-);
+    </form>
+  );
+};
 
 
 Form.propTypes = {
