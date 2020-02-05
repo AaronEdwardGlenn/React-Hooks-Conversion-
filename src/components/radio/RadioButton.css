@@ -1,0 +1,23 @@
+.RadioButton {
+    background-color: blue;
+    margin: 10px; 
+    border-style: groove; 
+    label {
+    border-radius: 10%;
+     padding: .5rem;
+
+     &:hover {
+         background-color: blueviolet;
+     }
+    }
+
+    input {
+       margin: 20px; 
+    }
+   
+    input:checked + label {
+        background-color: black;
+        color: purple;
+        border: 2px solid red; 
+    }
+}
