@@ -1,9 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App component renders App 1`] = `
-<StockInfo
-  dailyChange="not cool"
-  price="cool"
-  symbol="cool"
-/>
-`;
+exports[`App component renders App 1`] = `<StockFetcherFn />`;
