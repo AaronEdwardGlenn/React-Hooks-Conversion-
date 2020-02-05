@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getAAPL, getAMZN, getGILD } from '../services/stocksAPI';
 import StockInfo from '../components/StockInfo';
 import RadioButtons from '../components/radio/RadioButtons';
+import Form from '../components/form/Form';
 
 const stockProviderFactory = {
   GILD: getGILD,
@@ -12,7 +13,8 @@ const stockProviderFactory = {
 export default class StockFetcher extends Component {
     state = {
       stockProvider: 'AAPL',
-      stock: { symbol: '', price: '', priceChange: '' }
+      stock: { symbol: '', price: '', priceChange: '' },
+      searchInput: ''
     }
 
     componentDidMount() {
@@ -27,6 +29,10 @@ export default class StockFetcher extends Component {
 
     changeStockProvider = ({ target }) => {        
       this.setState({ stockProvider: target.value });
+    }
+
+    searchStock = ({ target }) => {
+      this.setState({ searchInput: target.value });
     }
     
     fetch = () => {
@@ -46,6 +52,7 @@ export default class StockFetcher extends Component {
 
       return (
         <>
+          <Form onChange={this.searchStock}></Form>
           <RadioButtons radioButtons={radioButtons} selected={this.state.stockProvider} name="stockProvider" onChange={this.changeStockProvider} />
           <StockInfo {...stock} />
         </>

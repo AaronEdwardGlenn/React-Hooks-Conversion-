@@ -1,10 +1,16 @@
 import React from 'react';
+
 import StockFetcherFn from '../containers/StockFetcherFn';
-import Form from './form/Form';
+import Header from './HeaderFooter/Header';
+import Footer from './HeaderFooter/Footer';
 
 export default function App() {
   return (
-    <Form />
+    <>
+      <Header />
+      <StockFetcherFn />
+      <Footer />
+    </>
   );
 }
   

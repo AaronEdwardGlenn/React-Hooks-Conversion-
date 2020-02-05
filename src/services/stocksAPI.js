@@ -34,8 +34,8 @@ export const getAMZN = () => {
     })); 
 };
   
-export const getStock = (stock) => {
-  return fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stock}&apikey=${key}`)
+export const getStock = (stockSymbol) => {
+  return fetch(`https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stockSymbol}&apikey=${key}`)
     .then(res => res.json())
     .then(data => data['Global Quote']) 
     .then(data => ({ 

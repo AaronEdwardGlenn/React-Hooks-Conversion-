@@ -17,12 +17,10 @@ RadioButton.propTypes = {
     PropTypes.string.isRequired,
   value: 
     PropTypes.string.isRequired,
-  onChange: 
-    PropTypes.func.isRequired,
   selected: 
   PropTypes.string.isRequired,
   handleChange: 
-  PropTypes.string.isRequired,
+  PropTypes.func.isRequired,
 };
 
 export default RadioButton; 

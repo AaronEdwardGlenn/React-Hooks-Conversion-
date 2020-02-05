@@ -1,0 +1,12 @@
+.Form {
+    input{
+        width: 10%;
+        margin-right: 5px; 
+        border: 1px solid red; 
+        height: 20px !important; 
+        
+    }
+    button{
+        
+    }
+}

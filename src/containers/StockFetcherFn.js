@@ -1,7 +1,8 @@
 import React, { useState, useEffect }  from 'react';
-import { getAAPL, getAMZN, getGILD } from '../services/stocksAPI';
+import { getAAPL, getAMZN, getGILD, getStock } from '../services/stocksAPI';
 import StockInfo from '../components/StockInfo';
 import RadioButtons from '../components/radio/RadioButtons';
+import Form from '../components/form/Form';
 
 const stockProviderFactory = {
   GILD: getGILD,
@@ -18,9 +19,15 @@ const radioButtons = [
 const StockFetcherFn = () => {
   const [stockProvider, setStockProvider] = useState('AAPL'); 
   const [stock, setStock] = useState({ symbol: '', price: '', priceChange: '' });
+  const [stockSearchBar, setStockSearchBar] = useState(''); 
+  
     
   let handelChange = ({ target }) => {
     setStockProvider(target.value);
+  };
+
+  let searchStocks = ({ target }) => {
+    setStockSearchBar(target.value);
   };
     
   let fetch = () => {
@@ -34,9 +41,27 @@ const StockFetcherFn = () => {
     fetch();
   }, [stockProvider]);
 
+  let handleSubmit = ({ target }) => {
+    setStockSearchBar(target.value);
+  };
+
+  let returnSearchedStock = () => {
+    return getStock(stockSearchBar)
+      .then(stock => {
+        setStock(stock);          
+      });
+  };
+
+  useEffect(()=> {
+    returnSearchedStock();
+  }, [stockSearchBar]);
+
+
+
 
   return (
     <>
+      <Form onChange={searchStocks} value={stockSearchBar} onClick={handleSubmit}></Form>
       <RadioButtons radioButtons={radioButtons} name="stockProvider" handleChange={handelChange} />
       <StockInfo {...stock} />
     </>
