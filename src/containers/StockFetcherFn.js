@@ -3,6 +3,8 @@ import { getAAPL, getAMZN, getGILD, getStock } from '../services/stocksAPI';
 import StockInfo from '../components/StockInfo';
 import RadioButtons from '../components/radio/RadioButtons';
 import Form from '../components/form/Form';
+import FormTwo from '../components/form/FormTwo';
+
 
 const stockProviderFactory = {
   GILD: getGILD,
@@ -16,16 +18,18 @@ const radioButtons = [
   { label: 'Amazon', value: 'AMZN' }
 ];
 
+
 const StockFetcherFn = () => {
   const [stockProvider, setStockProvider] = useState('AMZN'); 
   const [stock, setStock] = useState({ symbol: '', price: '', priceChange: '' });
   const [stockSearchBar, setStockSearchBar] = useState(''); 
+  const [historyArray, setHistoryArray] = useState(['HISTORY']);
   
-    
+  
   let handelChange = ({ target }) => {
     setStockProvider(target.value);
-    console.log(stockProvider);
-    
+    setHistoryArray(target.value);
+
   };
 
   let searchStocks = ({ target }) => {
@@ -38,7 +42,20 @@ const StockFetcherFn = () => {
         setStock(stock);          
       });
   };
+
   
+
+  let historyArrayIncrement = (historyArray) => {
+    historyArray.push(historyArray);
+  };
+  
+  
+  useEffect(()=> {
+    historyArrayIncrement();
+    console.log(historyArray);
+    
+  }, [historyArray]);
+
   useEffect(()=> {
     fetch();
   }, [stockProvider]);
@@ -63,7 +80,11 @@ const StockFetcherFn = () => {
 
   return (
     <>
-      <Form onClick={handleSubmit}></Form>
+      <p>
+        <Form onClick={handleSubmit}></Form>
+      </p>
+
+      <FormTwo onChange={searchStocks} value={stockSearchBar}></FormTwo>
       <RadioButtons radioButtons={radioButtons} selected={stockProvider} name="stockProvider" handleChange={handelChange} />
       <StockInfo {...stock} />
     </>
