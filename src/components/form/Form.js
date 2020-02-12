@@ -26,11 +26,11 @@ const Form = ({ onClick }) => {
 
 Form.propTypes = {
   onChange: 
-  PropTypes.func.isRequired,
+  PropTypes.func,
   value: 
-  PropTypes.string.isRequired,
+  PropTypes.string,
   onClick: 
-  PropTypes.func.isRequired,
+  PropTypes.func,
 };
 
 export default Form; 

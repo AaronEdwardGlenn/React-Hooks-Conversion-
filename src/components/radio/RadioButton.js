@@ -12,15 +12,15 @@ const RadioButton = ({ name, label, value, handleChange, selected }) => (
 
 RadioButton.propTypes = {
   name: 
-    PropTypes.string.isRequired,
+    PropTypes.string,
   label: 
-    PropTypes.string.isRequired,
+    PropTypes.string,
   value: 
-    PropTypes.string.isRequired,
+    PropTypes.string,
   selected: 
-  PropTypes.string.isRequired,
+  PropTypes.string,
   handleChange: 
-  PropTypes.func.isRequired,
+  PropTypes.func,
 };
 
 export default RadioButton; 

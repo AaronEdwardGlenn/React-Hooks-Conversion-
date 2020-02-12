@@ -5,7 +5,6 @@ import RadioButtons from '../components/radio/RadioButtons';
 import Form from '../components/form/Form';
 import FormTwo from '../components/form/FormTwo';
 
-
 const stockProviderFactory = {
   GILD: getGILD,
   AAPL: getAAPL,
@@ -21,15 +20,14 @@ const radioButtons = [
 
 const StockFetcherFn = () => {
   const [stockProvider, setStockProvider] = useState('AMZN'); 
-  const [stock, setStock] = useState({ symbol: '', price: '', priceChange: '' });
+  const [stock, setStock] = useState({ symbol: '', price: '', priceChange: '-420.69%' });
   const [stockSearchBar, setStockSearchBar] = useState(''); 
-  const [historyArray, setHistoryArray] = useState(['HISTORY']);
-  
-  
+  const [state, setState] = useState([]);
+
+    
   let handelChange = ({ target }) => {
     setStockProvider(target.value);
-    setHistoryArray(target.value);
-
+    
   };
 
   let searchStocks = ({ target }) => {
@@ -38,30 +36,23 @@ const StockFetcherFn = () => {
     
   let fetch = () => {
     return stockProviderFactory[stockProvider]()
-      .then(stock => {
+      .then(stock => {        
         setStock(stock);          
       });
   };
 
-  
-
-  let historyArrayIncrement = (historyArray) => {
-    historyArray.push(historyArray);
-  };
-  
-  
-  useEffect(()=> {
-    historyArrayIncrement();
-    console.log(historyArray);
-    
-  }, [historyArray]);
 
   useEffect(()=> {
     fetch();
   }, [stockProvider]);
 
+  let arr = [];
+
   let handleSubmit = (stockName) => {
     setStockSearchBar(stockName);
+    setState([stockName]);
+    arr.push(stockName);
+    ls.set('historyArray', arr);
   };
 
   let returnSearchedStock = () => {
@@ -87,6 +78,7 @@ const StockFetcherFn = () => {
       <FormTwo onChange={searchStocks} value={stockSearchBar}></FormTwo>
       <RadioButtons radioButtons={radioButtons} selected={stockProvider} name="stockProvider" handleChange={handelChange} />
       <StockInfo {...stock} />
+      <p>You clicked {state} </p>
     </>
   );
 };

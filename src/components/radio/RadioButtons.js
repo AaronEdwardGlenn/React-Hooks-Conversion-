@@ -17,15 +17,15 @@ const RadioButtons = ({ radioButtons, name, handleChange, selected }) => {
 RadioButtons.propTypes = {
   radioButtons: 
     PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    })).isRequired,
+      label: PropTypes.string,
+      value: PropTypes.string,
+    })),
   name: 
-    PropTypes.string.isRequired,
+    PropTypes.string,
   selected: 
-  PropTypes.string.isRequired,
+  PropTypes.string,
   handleChange: 
-  PropTypes.func.isRequired,
+  PropTypes.func,
 };
 
 export default RadioButtons

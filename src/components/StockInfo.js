@@ -36,7 +36,7 @@ const StockInfo = ({ symbol, price, dailyChange }) => {
   );};
 
 StockInfo.propTypes = {
-  symbol: PropTypes.string.isRequired,
+  symbol: PropTypes.string,
   price: PropTypes.string,
   dailyChange: PropTypes.string,
 };

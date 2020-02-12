@@ -15,8 +15,24 @@ exports[`the stockinfo component can match the snap 1`] = `
       420
        
     </p>
-    <p>
+    <p
+      style={
+        Object {
+          "color": "green",
+        }
+      }
+    >
+        
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
         Daily Change: 
+      </span>
+       
       Calvin Coolidge
        
     </p>

@@ -16,9 +16,9 @@ const FormTwo = ({ onChange, value }) => (
 
 FormTwo.propTypes = {
   onChange: 
-  PropTypes.func.isRequired,
+  PropTypes.func,
   value: 
-  PropTypes.string.isRequired,
+  PropTypes.string,
 };
 
 export default FormTwo; 
