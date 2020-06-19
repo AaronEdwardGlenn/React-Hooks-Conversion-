@@ -1,12 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the stockinfo component can match the snap 1`] = `
-<div>
-  Symbol:
-  YEE
-  Price: 
-  420
-  Daily Change: 
-  Calvin Coolidge
-</div>
+<Fragment>
+  <div
+    className="StockInfo"
+  >
+    <p>
+       Symbol: 
+      YEE
+       
+    </p>
+    <p>
+        Price: 
+      420
+       
+    </p>
+    <p
+      style={
+        Object {
+          "color": "green",
+        }
+      }
+    >
+        
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Daily Change: 
+      </span>
+       
+      Calvin Coolidge
+       
+    </p>
+  </div>
+</Fragment>
 `;

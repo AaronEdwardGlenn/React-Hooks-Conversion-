@@ -5,6 +5,7 @@ exports[`radiobuttons component matches the snap 1`] = `
   className="RadioButton"
 >
   <input
+    checked={false}
     label="rad lable"
     name="rad name"
     type="radio"

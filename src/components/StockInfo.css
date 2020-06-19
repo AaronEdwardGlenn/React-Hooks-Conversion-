@@ -1,0 +1,7 @@
+.StockInfo {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: cornflowerblue;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px; 
+}

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Headerz component renders a header 1`] = `
+<Fragment>
+  <header
+    className="Header"
+  >
+    <h1>
+       STOCK MARKET APPLICATION
+    </h1>
+  </header>
+</Fragment>
+`;
