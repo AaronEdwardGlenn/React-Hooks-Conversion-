@@ -1,6 +1,1 @@
-NOTES 3 FEB 2020
-
-Events and Hooks very similar 
-
-the difference between a react function that returns html in () vs {} is that the return is implicit. 
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b2b0d736-f540-4663-8268-b5b1294b2cd3/deploy-status)](https://app.netlify.com/sites/adskstatus/deploys)
