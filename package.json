@@ -23,8 +23,7 @@
     "test": "jest --verbose",
     "tw": "npm run test -- --watch",
     "start": "webpack-dev-server --hot --mode development --devtool eval-source-map",
-    "build": "webpack -p --devtool source-map",
-    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
+    "build": "webpack --mode production --config ./webpack.prod.config.js"
   },
   "keywords": [],
   "author": "",
