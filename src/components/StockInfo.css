@@ -1,7 +1,35 @@
 .StockInfo {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: cornflowerblue;
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px; 
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 0px;
+    text-align: center;
+    padding-top: 20px;
+
+}
+
+.top {
+    padding: 20px;
+}
+.price {
+    font-size: 50px;
+}
+
+
+
+.gif {
+    padding-top: 20px;
+    height: 20vh;
+    width: auto;
+
+}
+
+@media only screen and (max-width: 600px) {
+    img {
+        width: 90vw;
+    }
+    .price {
+        margin-bottom: 20px;
+    }
 }
