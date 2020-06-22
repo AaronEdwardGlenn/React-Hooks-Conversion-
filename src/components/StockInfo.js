@@ -26,7 +26,7 @@ const StockInfo = ({ symbol, price, dailyChange }) => {
         responseGif = `<img src="https://media.giphy.com/media/ToMjGpx9F5ktZw8qPUQ/giphy.gif">`;
     } else {
         dailyChangeStyle = { backgroundColor: 'green' };
-        responseGif = `<img src="https://media.giphy.com/media/ToMjGpx9F5ktZw8qPUQ/giphy.gif">`;
+        responseGif = `<img src="https://media.giphy.com/media/3ohzdIuqJoo8QdKlnW/giphy.gif">`;
     }
 
     return (
