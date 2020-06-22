@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`radiobuttons component matches the snap 1`] = `
+<div
+  className="RadioButton"
+>
+  <input
+    checked={false}
+    label="rad lable"
+    name="rad name"
+    type="radio"
+    value="rad value"
+  />
+  <label
+    htmlFor="rad value"
+  >
+    rad lable
+  </label>
+</div>
+`;

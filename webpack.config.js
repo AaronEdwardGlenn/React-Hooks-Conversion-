@@ -6,10 +6,10 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.[hash].js',
-    publicPath: '/'
+    publicPath: './'
   },
   devServer: {
-    port: 7890,
+    port: 1234,
     historyApiFallback: true
   },
   plugins: [
